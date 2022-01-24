@@ -1,0 +1,35 @@
+sequencias para fazer as coisas:
+controle
+rotas
+views
+
+
+php artisan make:controller UserAuthControler
+
+criar model user, nb: normalmente ja vem com model 
+camado user e este comenadoja cria migration na pasta
+databases automaticamente
+php artisan make:model User -m
+
+adicionar campo no arquivos user migrasion 
+ //campos adcionados
+            $table->text('name');
+            $table->text('email');
+            $table->text('password');
+ //fim
+depois so adcionar os campos na base de dados com o comando
+php artisan migrate
+
+
+o model deve ser estar em sigular enquato na tabela passa a ser no 
+plurar automaticamente que criamos
+
+proteger pagina profile entre outras pagina que se encontram depois de login
+primeiro temos que criar middleware chamado AuthCheck para seguranca com o comando
+se seguida configurar, tbm altera-se no Kernel.php
+php artisan make:middleware AuthCheck
+
+
+segundo middleware para outras URL todos, quando user estiver logado e escrever as url no navegador e redcionar atomaticamente para
+perfil dele
+php artisan make:middleware AlreadyLoggedIn
